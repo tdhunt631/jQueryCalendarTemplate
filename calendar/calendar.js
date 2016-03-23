@@ -15,9 +15,6 @@ var calendarData = {};
 
 $(document).ready(function(){
     createCalendar();
-    $('.changeMonth').live('click', function(){
-        changeMonth($(this).attr('id'));
-    });
 });
 
 function createCalendar(){
@@ -80,6 +77,11 @@ function createCalendar(){
 
     //display calender after it's built
     $('#calendar').css('display', 'block');      
+	
+	//set next and previous month buttons
+	$('.changeMonth').click(function(){
+        changeMonth($(this).attr('id'));
+    });
 }
 
 function changeMonth(id){
@@ -139,5 +141,5 @@ function changeMonth(id){
         monthSelector = currentYear+'-'+(new Date(currentYear,currentMonth).getMonth());
         $('#calendar').html('');
         createCalendar();
-    }
+	}
 }
